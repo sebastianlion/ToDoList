@@ -141,11 +141,12 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-let port = process.env.PORT;
+/* let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8000;
-}
+} */
 
-app.listen(8000, function() {
-  console.log("Server has started on port 3000 succesfully");
+var port = process.env.PORT || 3002
+app.listen(3002, function() {
+  console.log("Server has started on port 3002 succesfully");
 });
