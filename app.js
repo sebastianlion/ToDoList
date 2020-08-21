@@ -89,11 +89,6 @@ app.get("/:customListName", function(req, res){
     }
   });
   
-  const list = new List({
-    name: customListName,
-    items: defaultItems
-  });
-  list.save();
 });
 
 app.post("/", function(req, res){
@@ -124,9 +119,8 @@ app.post("/delete", function(req, res){
 
   if(listName === "Today"){
     Item.findByIdAndRemove(checkedItemId, function(err){
-      if(err){
-        console.log(err);
-      } else{
+      if(!err){
+
         console.log("Delete was succesfull");
         res.redirect("/");
       }
